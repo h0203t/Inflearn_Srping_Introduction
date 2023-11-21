@@ -1,9 +1,11 @@
 package Inflearn_Srping_Introduction.repository;
 
 import Inflearn_Srping_Introduction.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     private Map<Long, Member> store = new HashMap<>();
