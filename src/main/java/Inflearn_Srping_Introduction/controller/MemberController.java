@@ -1,6 +1,5 @@
 package Inflearn_Srping_Introduction.controller;
 
-
 import Inflearn_Srping_Introduction.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

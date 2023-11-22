@@ -5,12 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+
 public class MemoryMemberRepository implements MemberRepository{
 
     private Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
-
 
     @Override
     public Member sava(Member member) {
