@@ -1,6 +1,7 @@
 package Inflearn_Srping_Introduction.service;
 
 import Inflearn_Srping_Introduction.repository.JdbcMemberRepository;
+import Inflearn_Srping_Introduction.repository.JdbcTemplateMemberRepository;
 import Inflearn_Srping_Introduction.repository.MemberRepository;
 import Inflearn_Srping_Introduction.repository.MemoryMemberRepository;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +26,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository() {
     //  return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+    //  return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
