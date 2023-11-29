@@ -1,9 +1,7 @@
 package Inflearn_Srping_Introduction.service;
 
-import Inflearn_Srping_Introduction.repository.JdbcMemberRepository;
-import Inflearn_Srping_Introduction.repository.JdbcTemplateMemberRepository;
-import Inflearn_Srping_Introduction.repository.MemberRepository;
-import Inflearn_Srping_Introduction.repository.MemoryMemberRepository;
+import Inflearn_Srping_Introduction.repository.*;
+import jakarta.persistence.EntityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,20 +11,29 @@ import javax.sql.DataSource;
 public class SpringConfig {
 
     private final DataSource dataSource;
+    private final EntityManager em;
+    private final MemberRepository memberRepository;
 
-    public SpringConfig(DataSource dataSource) {
+    public SpringConfig(DataSource dataSource, EntityManager em, MemberRepository memberRepository) {
         this.dataSource = dataSource;
+        this.em = em;
+        this.memberRepository = memberRepository;
     }
+
+
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
-    @Bean
-    public MemberRepository memberRepository() {
-    //  return new MemoryMemberRepository();
-    //  return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
-    }
+//    @Bean
+//    public MemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//        return new JdbcMemberRepository(dataSource)//
+//        return new JdbcTemplateMemberRepository(dataSource);
+//        return new JpaMemberRepository(em);
+//
+//    }
+
 }
