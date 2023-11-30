@@ -1,6 +1,7 @@
-package Inflearn_Srping_Introduction.service;
+package Inflearn_Srping_Introduction;
 
 import Inflearn_Srping_Introduction.repository.*;
+import Inflearn_Srping_Introduction.service.MemberService;
 import jakarta.persistence.EntityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

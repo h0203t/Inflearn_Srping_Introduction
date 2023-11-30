@@ -21,14 +21,15 @@ public class MemberService {
     }
 
     /*
-    * 회원가입
-    * */
+     * 회원가입
+     * */
     public Long join(Member member) {
         // 같은 이름이 있는 중복 회원 X
         validataDuplicateMember(member); // 중복 회원 검증
         memberRepository.sava(member);
         return member.getId();
     }
+
     private void validataDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
@@ -37,8 +38,8 @@ public class MemberService {
     }
 
     /*
-    * 회원 검색
-    * */
+     * 회원 검색
+     * */
     public List<Member> findMembers() {
         return memberRepository.findAll();
     }
